@@ -7,7 +7,7 @@ Senior Project Project
     - C2hub
     - Events calendar
     - Recent MSU specific news link (RED, or the runner)
-- Implemenmt navigation bar
+- Implement navigation bar
 
 ## Stage 1
 - here
