@@ -1,5 +1,10 @@
+//-----------Import React and CSS-----------//
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+//-----------Components-----------//
+import MainNavigation from './shared/components/Navigation/MainNavigation';
 
 function App() {
   return (
