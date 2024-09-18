@@ -27,7 +27,7 @@
   .nav-links a.active {
     
     border-color: transparent;
-    color: #000000;
+    color: white;
     font-weight: bold;
   }
   
@@ -60,7 +60,7 @@
     }
   
     .nav-links a {
-      color: #000000;
+      color: white;
       text-decoration: none;
     }
   

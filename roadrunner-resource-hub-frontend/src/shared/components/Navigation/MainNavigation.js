@@ -35,7 +35,7 @@ const MainNavigation = props => {
             <span />
         </button>
         <h1 className="main-navigation__title">
-            <Link to = "/"><img className = "main-navigation__logo-image" src="../MSU_Denver_Roadrunners.png" alt ="Resource Hub"/></Link>
+            <Link to = "/"><img className = "main-navigation__logo-image" src="../MSUDenverLogoBlue.jpg" alt ="Resource Hub"/></Link>
         </h1>
         <nav className="main-navigation__header-nav">
             <NavLinks/>
