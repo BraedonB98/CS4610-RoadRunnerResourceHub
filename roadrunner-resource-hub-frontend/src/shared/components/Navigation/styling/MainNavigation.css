@@ -46,3 +46,12 @@
       display: block;
     }
   }
+
+  .main-navigation__logo-image{
+    width: 80px;
+    height: 50px;
+    max-height: 50px;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    
+  }
