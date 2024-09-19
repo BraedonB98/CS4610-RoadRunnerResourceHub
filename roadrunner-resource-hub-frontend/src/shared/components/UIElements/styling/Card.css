@@ -6,4 +6,5 @@
   padding: 1rem;
   overflow: hidden;
   background: var(--colorSecondary);
+  animation: ease-in-out 0.3s;
 }
