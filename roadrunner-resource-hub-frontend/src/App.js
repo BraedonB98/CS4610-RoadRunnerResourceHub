@@ -1,41 +1,39 @@
-//-----------Import React and CSS-----------//
+// App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
-//-----------Components-----------//
 import MainNavigation from './shared/components/Navigation/MainNavigation';
+import Footer from './shared/components/Navigation/Footer';
 
-//-----------Pages-----------//
-import Welcome from './landing/pages/Welcome.js';
-import Freshman from './student_resources/pages/Freshman.js';
-import Sophomore from './student_resources/pages/Sophomore.js';
-import Junior from './student_resources/pages/Junior.js';
-import Senior from './student_resources/pages/Senior.js';
+import Welcome from './landing/pages/Welcome';
+import Freshman from './student_resources/pages/Freshman';
+import Sophomore from './student_resources/pages/Sophomore';
+import Junior from './student_resources/pages/Junior';
+import Senior from './student_resources/pages/Senior';
+import Transfer from './student_resources/pages/Transfer';
 
 function App() {
-  let routes;
-
-  routes = (
-    <Routes>
-      <Route path = "/" exact element = {<Welcome/>}/>
-      <Route path = "/Freshman" exact element = {<Freshman/>}/>
-      <Route path = "/Sophomore" exact element = {<Sophomore/>}/>
-      <Route path = "/Junior" exact element = {<Junior/>}/>
-      <Route path = "/Senior" exact element = {<Senior/>}/>
-    </Routes>
-  );
-
   return (
-    <Router>
-      <MainNavigation/>
-      <main>
-        {routes}
-      </main>
-      <footer className='Footer'>
-        <p>© 2021 Roadrunner Resource Hub</p>
-      </footer>
-    </Router>
+    <div className="page-container">
+      <Router>
+        <MainNavigation />
+        <div className="content-wrap">
+          <main className="main-content">
+            <Routes>
+              <Route path="/" exact element={<Welcome />} />
+              <Route path="/Freshman" exact element={<Freshman />} />
+              <Route path="/Sophomore" exact element={<Sophomore />} />
+              <Route path="/Junior" exact element={<Junior />} />
+              <Route path="/Senior" exact element={<Senior />} />
+              <Route path="/Transfer" exact element={<Transfer />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 
