@@ -14,7 +14,8 @@ const Welcome = () => {
 
             </div>
 
-            <div className="welcome-container">
+            <div className="welcome-container"> 
+            {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
 
             <Card {...{style: {width: '30%', margin: '10px' }} }>
                 <h2>Canvas</h2>

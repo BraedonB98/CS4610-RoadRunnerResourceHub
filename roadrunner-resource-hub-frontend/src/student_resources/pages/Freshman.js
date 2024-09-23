@@ -1,14 +1,21 @@
 import React  from "react";
-import Card from "../../shared/components/UIElements/Card";
+// import Card from "../../shared/components/UIElements/Card";
+import "../../student_resources/pages/styling/StudentResources.css";
 
 const Freshman = () => {
     //insert function here
     return (
         <React.Fragment>
-            <Card>
-            <h1>Welcome Freshman</h1>
-            <p>Here are some resources you may find useful </p>
-            </Card>
+            <div className="page-welcometext">
+
+                <div className="welcome-container">
+                    {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
+
+                </div>
+
+                <h1>Welcome Freshman</h1>
+                <p>Here are some resources you may find useful </p>
+            </div>
         </React.Fragment>
     )
 }
