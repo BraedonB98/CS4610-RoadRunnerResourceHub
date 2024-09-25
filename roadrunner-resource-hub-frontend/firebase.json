@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "/roadrunner-resource-hub-frontend/build",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
