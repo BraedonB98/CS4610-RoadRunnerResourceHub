@@ -1,5 +1,6 @@
 import React  from "react";
 import Card from "../../shared/components/UIElements/Card";
+import Icon from "../../shared/components/UIElements/Icons";
 import '../../student_resources/pages/styling/StudentResources.css';
 
 const Welcome = () => {
@@ -16,8 +17,9 @@ const Welcome = () => {
 
             <div className="welcome-container">
 
-            <Card {...{style: {width: '30%', margin: '10px' }} }>
-                <h2>Canvas</h2>
+            <Card {...{style: {width: '30%', margin: '10px' }, onClick: () => {window.location.href = "https://msudenver.edu/canvas"}}}>
+                <Icon {...{name: "book"} } className="icon" />
+                <h2> Canvas</h2>
                 <p>Canvas is the Learning Management System used by MSU Denver. 
                     Here you can access your courses, submit assignments, and communicate with your professors.</p>
             </Card>
