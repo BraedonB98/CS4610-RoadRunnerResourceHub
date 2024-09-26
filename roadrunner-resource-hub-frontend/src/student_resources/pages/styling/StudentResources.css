@@ -1,7 +1,7 @@
 
 .welcome-container{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -10,6 +10,29 @@
     font-size: 2.5rem;
     margin: 1rem;
     padding: 1rem;
+}
+
+.welcome-card{
+   flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    background: var(--colorSecondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+
+}
+
+.welcome-image{
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.canvas-image{
+    max-width: 40%;
+    height: auto;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .page-welcometext{
