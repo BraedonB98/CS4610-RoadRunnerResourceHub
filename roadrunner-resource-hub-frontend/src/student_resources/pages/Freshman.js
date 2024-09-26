@@ -1,5 +1,6 @@
 import React  from "react";
 import Card from "../../shared/components/UIElements/Card";
+import "../../student_resources/pages/styling/StudentResources.css";
 
 const Freshman = () => {
     //insert function here

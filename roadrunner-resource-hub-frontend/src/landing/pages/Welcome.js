@@ -15,10 +15,11 @@ const Welcome = () => {
 
             </div>
 
-            <div className="welcome-container">
+            <div className="welcome-container"> 
+            {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
 
-            <Card {...{style: {width: '30%', margin: '1.5rem', cursor: 'pointer' }, 
-            onClick: () => {window.location.href = "https://msudenver.instructure.com/login/saml"}}} className="welcome-card">
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem', cursor: 'pointer' }, 
+            onClick: () => {window.location.href = "https://msudenver.instructure.com/login/saml"}}}>
                 
                 <img src="../Canvas.jpg" alt="Canvas" className="canvas-image"/>
                 <h2> Canvas</h2>
