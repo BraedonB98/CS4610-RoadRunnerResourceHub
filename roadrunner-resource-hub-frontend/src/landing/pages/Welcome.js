@@ -17,7 +17,7 @@ const Welcome = () => {
             <div className="welcome-container"> 
             {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
 
-            <Card {...{style: {width: '30%', margin: '10px' }} }>
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '10px' }} }>
                 <h2>Canvas</h2>
                 <p>Canvas is the Learning Management System used by MSU Denver. 
                     Here you can access your courses, submit assignments, and communicate with your professors.</p>
