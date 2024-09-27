@@ -36,6 +36,15 @@ const Freshman = () => {
                     <p> Click here to learn more about the different tutoring services available to you on campus! </p>
                 </Card>
 
+                
+                {/* <Card {...{style: {width: '30%', margin: '1.5rem'},
+                onClick: () => {window.open("https://ssomanager.msudenver.edu/ssomanager/saml/login?relayState=/c/auth/SSB?pkg=https://prod-banner.msudenver.edu/pls/prod_web/bwskfshd.P_CrseSchdDetl")}}}
+                className="welcome-card">
+                    <h2>Class Schedule</h2>
+                    <p>Access your class schedule here to see when and where your classes are being held!</p>
+                </Card> */}
+
+
             </div>
 
         </React.Fragment>

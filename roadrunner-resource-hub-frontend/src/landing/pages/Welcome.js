@@ -1,6 +1,5 @@
 import React  from "react";
 import Card from "../../shared/components/UIElements/Card";
-import Icon from "../../shared/components/UIElements/Icons";
 import '../../student_resources/pages/styling/StudentResources.css';
 
 const Welcome = () => {
@@ -18,33 +17,33 @@ const Welcome = () => {
             <div className="welcome-container"> 
             {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
 
-            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem', cursor: 'pointer' }, 
-            onClick: () => {window.location.href = "https://msudenver.instructure.com/login/saml"}}}>
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem'}, 
+            onClick: () => {window.open("https://msudenver.instructure.com/login/saml")}}}>
                 
-                <img src="../Canvas.jpg" alt="Canvas" className="canvas-image"/>
+                <img src="../canvas3.png" alt="Canvas" className="canvas-image"/>
                 <h2> Canvas</h2>
                 <p>Canvas is the Learning Management System used by MSU Denver. 
                     Here you can access your courses, submit assignments, and communicate with your professors.</p>
             </Card>
 
-            <Card {...{style: {width: '30%', margin: '1.5rem'}}}>
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem'}}}>
                 <h2>Student Hub</h2>
                 <p>The Student Hub is a one-stop-shop for all your student needs. 
                     Here you can access your email, register for classes, and access your financial aid information.</p>
             </Card>
 
-            <Card {...{style: {width: '30%', margin: '1.5rem'}}}>
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem'}}}>
                 <h2>Library</h2>
                 <p>The MSU Denver Library is a great resource for all your research needs. 
                     Here you can access books, articles, and other resources to help you succeed in your classes.</p>
             </Card>
 
-            <Card {...{style: {width: '30%', margin: '1.5rem'}}}>
+            <Card className = "welcome-card" {...{style: {width: '30%', margin: '1.5rem'}}}>
                 <h2>Academic Advising</h2>
                 <p>Academic Advising is a great resource for all your academic needs. 
                     Here you can get help with course selection, degree planning, and other academic concerns.</p>
             </Card>
-
+            
             </div>
 
         </React.Fragment>
