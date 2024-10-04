@@ -1,0 +1,38 @@
+
+.resource-card {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 0;
+    background: var(--colorSecondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 1rem 1rem 1rem 1rem ;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    width: 30%;
+}
+
+.resource-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.resource-heading{
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+.resource-description {
+    font-size: 1rem;
+    margin: 0;
+    padding: 1rem;
+}
+
+.resource-image {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 1rem 1rem 0 0;
+    object-fit: cover;
+}
