@@ -1,5 +1,5 @@
 import React  from "react";
-// import Card from "../../shared/components/UIElements/Card";
+import ResourceCard from "./components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
 
 const Freshman = () => {
@@ -7,15 +7,20 @@ const Freshman = () => {
     return (
         <React.Fragment>
             <div className="page-welcometext">
-
-                <div className="welcome-container">
-                    {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
-
-                </div>
-
-                <h1>Welcome Freshman</h1>
-                <p>Here are some resources you may find useful </p>
+                <h1>Welcome Freshman!</h1>
+                <p>Here are some resources you may find useful as you start your journey at MSU Denver!</p>
             </div>
+
+            <div className="welcome-container">
+
+                <ResourceCard name="Student Organizations/Clubs" /> 
+
+                <ResourceCard name="Campus Map" />
+
+                <ResourceCard name="Tutoring Services" />
+
+            </div>
+
         </React.Fragment>
     )
 }
