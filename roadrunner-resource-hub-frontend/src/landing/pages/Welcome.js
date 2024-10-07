@@ -23,6 +23,9 @@ const Welcome = () => {
             <ResourceCard name="Library" />
 
             <ResourceCard name = "Academic Advising" />
+
+            <ResourceCard name="Events" />
+
             
           </div>
 
