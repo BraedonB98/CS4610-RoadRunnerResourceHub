@@ -15,7 +15,6 @@ const todoRoutes = require("./routes/todo-routes");
 const uidRoutes = require("./routes/uid-routes");
 const userRoutes = require("./routes/user-routes");
 
-
 //-----------------MiddleWare--------------------
 app.use(bodyParser.json());
 
@@ -42,8 +41,6 @@ app.use("/api/uid", uidRoutes); // /api/UID...
 app.use("/api/user", userRoutes); // /api/user...
 app.use("/api/todo", todoRoutes); // /api/todo...
 
-
-
 //-----------------Unknown Route Handling-------------------
 app.use((req, res, next) => {
   const error = new HttpError("Could not find this route.", 404);
@@ -67,7 +64,7 @@ app.use((error, req, res, next) => {
 });
 
 //------------------Mongo------------------------
-console.log(`mongodb+srv://${process.env.MongoDB_User}:${process.env.MongoDB_Password}@${process.env.MongoDB_Server}/?retryWrites=true&w=majority&appName=${process.env.MongoDB_AppName}`);
+//console.log(`mongodb+srv://${process.env.MongoDB_User}:${process.env.MongoDB_Password}@${process.env.MongoDB_Server}/?retryWrites=true&w=majority&appName=${process.env.MongoDB_AppName}`);
 
 mongoose
   .connect(
