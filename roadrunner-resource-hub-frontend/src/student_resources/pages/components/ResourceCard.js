@@ -1,66 +1,76 @@
 import React, { useState, useEffect } from "react";
 import "../components/styling/ResourceCard.css";
 
+
 // List of resources used in the ResourceCard component, each resource has a name, search keywords, description, link, and image
 // Add more resources to the list to display more resource cards
 const resources = [
     { // Canvas resource
         name: "Canvas",
         search: ["Canvas", "Learning Management System", "Courses", "Assignments"],
-        description: "Canvas is the Learning Management System used by MSU Denver. Here you can access your courses, submit assignments, and communicate with your professors.",
+        description: "Access your courses, submit assignments, and communicate with professors.",
         link: "https://msudenver.instructure.com/login/saml", // Canvas link
         image: "../images/canvas3.png",
     },
     { // Student Organizations/Clubs resource
         name: "Student Organizations/Clubs",
         search: ["Student Organizations", "Clubs", "Student Life"],
-        description: "Click here to learn more about the different student organizations and clubs at MSU Denver. Get involved and make new friends!",
+        description: "Learn about student organizations and clubs at MSU Denver.",
         link: "https://roadrunnerlink.msudenver.edu/organizations", 
         image: "../images/clubs.jpg",
     },
     { // Campus Map resource
         name: "Campus Map",
         search: ["Campus Map", "Map", "Campus"],
-        description: "Click here to view the campus map to help you find your way around campus!",
+        description: "View the campus map to help find your way around.",
         link: "https://map.concept3d.com/?id=225#!ct/2310?s",
         image: "../images/Campus1.jpg",
         },
     { // Tutoring Services resource
         name: "Tutoring Services",
         search: ["Tutoring Services", "Tutoring", "Academic Support"],
-        description: "Click here to learn more about the different tutoring services available to you on campus!",
+        description: "Learn more about tutoring services available on campus.",
         link: "https://www.msudenver.edu/student-academic-services/tutoring/",
         image: "../images/tutoring.jpg",
     },
     { // Class Schedule resource
         name: "Class Schedule",
         search: ["Class Schedule", "Schedule", "Courses"],
-        description: "Access your class schedule here to see when and where your classes are being held!",
+        description: "Access your class schedule to see class times and locations.",
         link: "https://ssomanager.msudenver.edu/ssomanager/saml/login?relayState=/c/auth/SSB?pkg=https://prod-banner.msudenver.edu/pls/prod_web/bwskfshd.P_CrseSchdDetl",
         image: "../images/class-schedule.jpg",
     },
-    { //Auraia Campus Website resource
+    { // Auraria Campus Website resource
         name: "Auraria Campus Website",
         search: ["Auraria Campus", "Campus", "Website"],
-        description: "The Auraria Campus website is a great resource for all your campus needs. Here you can access information about campus life, resources like the ID Station, and more.",
+        description: "Access information about campus life and resources.",
         link: "https://aurariacampus.edu/",
         image: "../images/Auraria_Campus_sign.jpg",
     },
     {// Academic Advising resource
         name: "Academic Advising",
         search: ["Academic Advising", "Advising", "Academic Support"],
-        description: "Click here to learn more about academic advising and how to schedule an appointment with your advisor.",
+        description: "Learn about academic advising and schedule appointments.",
         link: "https://www.msudenver.edu/advising/",
         image: "../images/Advising.jpg",
     },
     { // Library resource
         name: "Library",
         search: ["Library", "Research", "Books"],
-        description: "The MSU Denver Library is a great resource for all your research needs. Here you can access books, articles, and other resources to help you succeed in your classes.",
+        description: "Access books, articles, and resources for research needs.",
         link: "https://library.auraria.edu/",
         image: "../images/Auraria_Library.jpg",
+    },
+    {
+        // Events resource
+        name: "Events",
+        search: ["Events", "Campus Events", "Activities"],
+        description: "Stay updated with campus events, workshops, and activities.",
+        link: "https://msudenver.trumba.com/",
+        image: "../icons/schedule.png", 
     }
-]
+];
+
 
 const ResourceCard = (props) => {
     const [resourcesState, setResourcesState] = useState([]); // State for resources
