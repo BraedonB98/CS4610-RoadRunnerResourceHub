@@ -1,7 +1,7 @@
 {
-  "name": "2dofinancebackend",
+  "name": "roadrunner-resource-hub",
   "version": "1.0.0",
-  "description": "backend for finance and todo tracking app",
+  "description": "student resources",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/BraedonB98/2dofinance#readme",
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
