@@ -68,6 +68,20 @@ const resources = [
         description: "Stay updated with campus events, workshops, and activities.",
         link: "https://msudenver.trumba.com/",
         image: "../icons/schedule.png", 
+    },
+    {
+        name: "Financial Aid",
+        search: ["Financial Aid", "Scholarships", "Grants"],
+        description: "Here you can find information about your financial aid package, scholarships, and grants.",
+        link: "https://ssb.msudenver.edu/StudentSelfService/ssb/financialAid#!",
+        image: "../images/Financial-Aid.png",
+    },
+    {
+        name: "Roadrunner Athletics",
+        search: ["Roadrunner Athletics", "Sports", "Athletics"],
+        description: "Support MSU Denver's athletic teams and learn about upcoming games and events!",
+        link: "https://roadrunnersathletics.com/index.aspx",
+        image: "" // Add image link
     }
 ];
 

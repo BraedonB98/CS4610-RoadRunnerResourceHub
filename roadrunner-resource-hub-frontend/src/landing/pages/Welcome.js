@@ -26,6 +26,8 @@ const Welcome = () => {
 
             <ResourceCard name="Events" />
 
+            <ResourceCard name="Financial Aid" />
+
             
           </div>
 

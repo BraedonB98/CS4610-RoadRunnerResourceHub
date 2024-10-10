@@ -19,6 +19,8 @@ const Freshman = () => {
 
                 <ResourceCard name="Tutoring Services" />
 
+                <ResourceCard name="Financial Aid" />
+
             </div>
 
         </React.Fragment>
