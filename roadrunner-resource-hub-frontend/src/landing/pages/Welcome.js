@@ -1,5 +1,5 @@
 import React from "react";
-import ResourceCard from "../../student_resources/pages/components/ResourceCard";
+import ResourceCard from "../../student_resources/components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
 
 const Welcome = () => {
