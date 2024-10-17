@@ -11,19 +11,13 @@ const NavLinks = props => {
                 <NavLink to ="/" exact>Home</NavLink>
             </li>
             <li>
-                <NavLink to = {`/Freshman`}>Freshman</NavLink>
+                <NavLink to = {`/NewStudents`}> New Students </NavLink>
             </li>
             <li>
-                <NavLink to = {`/Sophomore`}> Sophomore </NavLink>
+                <NavLink to = {`/ContinuingStudents`}> Continuing Students </NavLink>
             </li>
             <li>
-                <NavLink to = {`/Junior`}> Junior </NavLink>
-            </li>
-            <li>
-                <NavLink to = {`/Senior`}> Senior </NavLink>
-            </li>
-            <li>
-                <NavLink to = {'/Transfer'}> Transfer </NavLink>
+                <NavLink to = {`/GraduatingStudents`}> Graduating Students </NavLink>
             </li>
 
         </ul>

@@ -88,6 +88,28 @@ const resources = [
         description: "Click here to apply for graduation and receive your degree!",
         link: "https://ssb.msudenver.edu/StudentSelfService/ssb/graduationApplication#!",
         image: "../images/graduation.jpg",
+    },
+    {
+        name: "Degree Progress Report",
+        search: ["Degree Progress Report", "Degree", "Progress"],
+        description: "View your degree progress report to see what courses you have completed and what you still need to take.",
+        link: "https://degreeworks.msudenver.edu/Dashboard",
+        image: "../images/degreePlan.jpg",
+        
+    },
+    {
+        name: "C2 Hub",
+        search: ["C2 Hub", "Career", "Center"],
+        description: "Click here to access the C2 Hub where you can find resources, events, and tools related to career development such as resume building, job searching, and more.",
+        link: "https://www.msudenver.edu/classroom-to-career-hub/",
+        image: "../images/C2Hub.jpg",
+    },
+    {
+        name: "Student Email",
+        search: ["Student Email", "Email", "Outlook"],
+        description: "Access your MSU Denver student email account to stay updated with important information.",
+        link: "https://email.msudenver.edu/",
+        image: "../images/outlookEmail.jpg",
     }
 ];
 

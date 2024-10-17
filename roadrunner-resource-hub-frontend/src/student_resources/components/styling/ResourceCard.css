@@ -9,8 +9,8 @@
     overflow: hidden;
     transition: all 0.3s;
     cursor: pointer;
-    width: 30%;
-    height: 30%;
+    width: 21%;
+    height: auto;
 }
 
 .resource-card:hover {
@@ -43,4 +43,5 @@
     height: 200px;
     border-radius: 1rem 1rem 0 0;
     object-fit: cover;
+    object-position: center;
 }

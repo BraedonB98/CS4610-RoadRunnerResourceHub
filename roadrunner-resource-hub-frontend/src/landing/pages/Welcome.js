@@ -18,6 +18,8 @@ const Welcome = () => {
 
             <ResourceCard name="Canvas" />
 
+            <ResourceCard name="Student Email" />
+
             <ResourceCard name="Auraria Campus Website" />
 
             <ResourceCard name="Library" />
@@ -26,7 +28,7 @@ const Welcome = () => {
 
             <ResourceCard name="Events" />
 
-            {/* <ResourceCard name="Roadrunner Athletics" /> */}
+            <ResourceCard name="Roadrunner Athletics" />
 
             <ResourceCard name="Financial Aid" />
 

@@ -8,11 +8,9 @@ import MainNavigation from './shared/components/Navigation/MainNavigation';
 import Footer from './shared/components/Navigation/Footer';
 
 import Welcome from './landing/pages/Welcome';
-import Freshman from './student_resources/pages/Freshman';
-import Sophomore from './student_resources/pages/Sophomore';
-import Junior from './student_resources/pages/Junior';
-import Senior from './student_resources/pages/Senior';
-import Transfer from './student_resources/pages/Transfer';
+import NewStudents from './student_resources/pages/NewStudents';
+import ContinuingStudents from './student_resources/pages/ContinuingStudents';
+import GraduatingStudents from './student_resources/pages/GraduatingStudents';
 
 function App() {
   return (
@@ -23,11 +21,11 @@ function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" exact element={<Welcome />} />
-              <Route path="/Freshman" exact element={<Freshman />} />
-              <Route path="/Sophomore" exact element={<Sophomore />} />
-              <Route path="/Junior" exact element={<Junior />} />
-              <Route path="/Senior" exact element={<Senior />} />
-              <Route path="/Transfer" exact element={<Transfer />} />
+
+              <Route path="/NewStudents" exact element={<NewStudents />} />
+              <Route path="/ContinuingStudents" exact element={<ContinuingStudents />} />
+              <Route path="/GraduatingStudents" exact element={<GraduatingStudents />} />
+
             </Routes>
           </main>
         </div>
