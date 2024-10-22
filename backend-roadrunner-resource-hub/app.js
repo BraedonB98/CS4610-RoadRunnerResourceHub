@@ -11,7 +11,7 @@ const app = express();
 
 //-------------------Routes-----------------------
 const userRoutes = require("./routes/user-routes");
-const resourcesRoutes = require("./routes/resources-routes");
+const resourceRoutes = require("./routes/resource-routes");
 
 //-----------------MiddleWare--------------------
 app.use(bodyParser.json());
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 
 //-----------------Known Routes--------------------------
 app.use("/api/user", userRoutes); // /api/user...
-app.use("/api/resources", resourcesRoutes); // /api/resources...
+app.use("/api/resource", resourceRoutes); // /api/resources...
 
 
 
