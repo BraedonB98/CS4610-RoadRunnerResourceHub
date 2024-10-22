@@ -1,11 +1,3 @@
-//--------------------imports-------------------------
-const accountSid = process.env.TwilioApi_SID;
-const authToken = process.env.TwilioApi_Key;
-//const client = require("twilio")(accountSid, authToken);
-
-//const sgMail = require("@sendgrid/mail");
-//sgMail.setApiKey(process.env.SendGridApi_Key);
-
 //------------------Auth----------------------------
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -123,21 +115,8 @@ const createUser = async (req, res, next) => {
     email,
     phoneNumber: "+1" + phoneNumber,
     password: hashedPassword,
-    preferences: {
-      notificationTime: 0,
-      notificationType: "None",
-      notificationToDo: false,
-      notificationFinance: false,
-    },
-    toDoCategories: [
-      {
-        name: "To Do",
-        icon: "setting",
-        toDoList: [],
-      },
-    ],
-    financeAccounts: [],
-    recurringExpenses: [],
+    permissions: [],//student, faculty, staff, admin
+    resources: [],
   });
   //Sending new user to DB
   try {
@@ -158,31 +137,11 @@ const createUser = async (req, res, next) => {
     return next(new HttpError("Login Failed", 500));
   }
 
-  //SMS Notification with Twilio
-  /*
-  client.messages.create({
-    body: `Welcome ${createdUser.name} to 2DoTrack! We are happy to have you!!!`,
-    from: process.env.TwilioApi_PhonNumber,
-    to: `${createdUser.phoneNumber}`,
-  });
-
-  //Email Notification with SendGrid(twilio)
-  const msg = {
-    to: createdUser.email,
-    from: process.env.SendGridApi_Email,
-    subject: "Welcome to 2DoTrack!!!",
-    text: `message`,
-    html: `<p>Welcome ${createdUser.name},</p> <p>to 2DoTrack! We are happy to have you!!! </p> <p>If this is a mistake please let us know,</p> <p> your friends at,</p><h2>2DoTrack<h2>`,
-  };
-  sgMail.send(msg).catch((error) => {
-    console.error(error);
-  });
-  */
-
   res
     .status(201)
     .json({ _id: createdUser._id, email: createdUser.email, token: token });
 };
+
 const login = async (req, res, next) => {
   const { email, phoneNumber, password } = req.body;
   //Locating User
@@ -269,49 +228,13 @@ const photoUpload = async (req, res, next) => {
 
   res.json({ user: user.imageUrl.toObject({ getters: true }) });
 };
-const getPreferences = async (req, res, next) => {
-  //getting params from url
-  const uid = req.userData._id;
 
-  //getting user from DB
-  let user = await getUserById(uid);
-  if (!!user.error) {
-    return next(new HttpError(user.errorMessage, user.errorCode));
-  }
-
-  res
-    .status(200)
-    .json({ preferences: user.preferences.toObject({ getters: true }) });
-};
-const updatePreferences = async (req, res, next) => {
-  const uid = req.userData._id;
-  const { preferences } = req.body;
-
-  //getting user from DB
-  let user = await getUserById(uid);
-  if (!!user.error) {
-    return next(new HttpError(user.errorMessage, user.errorCode));
-  }
-
-  user.preferences = preferences;
-  try {
-    await user.save();
-  } catch (error) {
-    console.log(error);
-    return next(new HttpError("Could not update user in database", 500));
-  }
-
-  res
-    .status(200)
-    .json({ preferences: user.preferences.toObject({ getters: true }) });
-};
 
 //---------------------Exports--------------------------
 exports.createUser = createUser;
 exports.login = login;
 exports.photoUpload = photoUpload;
-exports.getPreferences = getPreferences;
-exports.updatePreferences = updatePreferences;
+
 exports.getUserById = getUserById;
 exports.getUserByProp = getUserByProp;
 exports.userInDataBase = userInDataBase;

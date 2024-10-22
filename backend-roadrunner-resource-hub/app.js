@@ -10,11 +10,8 @@ const HttpError = require("./models/http-error");
 const app = express();
 
 //-------------------Routes-----------------------
-
-const todoRoutes = require("./routes/todo-routes");
-const uidRoutes = require("./routes/uid-routes");
 const userRoutes = require("./routes/user-routes");
-
+const resourcesRoutes = require("./routes/resources-routes");
 
 //-----------------MiddleWare--------------------
 app.use(bodyParser.json());
@@ -38,9 +35,8 @@ app.use((req, res, next) => {
 });
 
 //-----------------Known Routes--------------------------
-app.use("/api/uid", uidRoutes); // /api/UID...
 app.use("/api/user", userRoutes); // /api/user...
-app.use("/api/todo", todoRoutes); // /api/todo...
+app.use("/api/resources", resourcesRoutes); // /api/resources...
 
 
 
