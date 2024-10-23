@@ -6,24 +6,25 @@ import "../../student_resources/pages/styling/StudentResources.css";
 const MiddleYears = () => {
     return(
         <React.Fragment>
-            <div className="page-welcometext">
-                <h1>Welcome Continuing Students!</h1>
-                <p>Here are some resources you may find useful as you continue your journey at MSU Denver!</p>
-            </div>
 
-            <div className="welcome-container">
+            <div className="ContinuingStudents-background">
 
-                <ResourceCard name="Degree Progress Report" />
+                <div className="page-welcometext">
+                    <h1>Welcome Continuing Students!</h1>
+                    <p>Here are some resources you may find useful as you continue your journey at MSU Denver!</p>
+                </div>
 
-                <ResourceCard name="Canvas" />
+                <div className="welcome-container">
 
-                <ResourceCard name="Academic Advising" />
+                    <ResourceCard name= "Tutoring Services" />
 
-                <ResourceCard name="Tutoring Services" />
+                    <ResourceCard name= "Library" />
 
-                <ResourceCard name="Financial Aid" />
+                    <ResourceCard name= "Career Link" />
 
+                    <ResourceCard name= "Writing Center" />
 
+                </div>
 
             </div>
 

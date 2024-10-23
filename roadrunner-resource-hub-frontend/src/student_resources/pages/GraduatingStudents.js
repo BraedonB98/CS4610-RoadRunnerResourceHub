@@ -6,18 +6,25 @@ import "../../student_resources/pages/styling/StudentResources.css";
 const LastYear = () => {
     return(
         <React.Fragment>
-            <div className="page-welcometext">
-                <h1>Welcome Graduating Students!</h1>
-                <p>Here are some resources you may find useful as you finish your journey at MSU Denver!</p>
-            </div>
 
-            <div className="welcome-container">
+            <div className="GraduatingStudents-background">
 
-                <ResourceCard name="Apply for Graduation" />
+                <div className="page-welcometext">
+                    <h1>Welcome Graduating Students!</h1>
+                    <p>Here are some resources you may find useful as you finish your journey at MSU Denver!</p>
+                </div>
 
-                <ResourceCard name="Degree Progress Report" />
+                <div className="welcome-container">
 
-                <ResourceCard name="C2 Hub" />
+                    <ResourceCard name="Apply for Graduation" />
+
+                    <ResourceCard name= "Graduate Financial Aid" />
+
+                    <ResourceCard name="Career Link" />
+
+                    <ResourceCard name="C2 Hub" />
+
+                </div>
 
             </div>
 

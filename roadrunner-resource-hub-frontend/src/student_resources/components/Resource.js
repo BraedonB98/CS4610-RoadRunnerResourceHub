@@ -12,7 +12,7 @@ const resources = [
         image: "../images/canvas3.png",
     },
     { // Student Organizations/Clubs resource
-        name: "Student Organizations/Clubs",
+        name: "Student Organizations",
         search: ["Student Organizations", "Clubs", "Student Life"],
         description: "Learn about student organizations and clubs at MSU Denver.",
         link: "https://roadrunnerlink.msudenver.edu/organizations", 
@@ -110,6 +110,34 @@ const resources = [
         description: "Access your MSU Denver student email account to stay updated with important information.",
         link: "https://email.msudenver.edu/",
         image: "../images/outlookEmail.jpg",
+    },
+    {
+        name: "Career Link",
+        search: ["Career Link", "Career", "Jobs"],
+        description: "Access Career Link to find job and internship opportunities, career fairs, upload your resume, and more.",
+        link: "https://shibboleth-msudenver-csm.symplicity.com/sso/",
+        image: "../images/careerLink.jpg",
+    },
+    {
+        name: "VMock",
+        search: ["VMock", "Resume", "Feedback"],
+        description: "Get instant feedback on your resume with VMock, a resume review tool!",
+        link: "https://www.vmock.com/msudenver/",
+        image: '../images/vmockResume.jpg',
+    },
+    {
+        name: "Writing Center",
+        search: ["Writing Center", "Writing", "Tutoring"],
+        description: "Get help with your writing assignments at the Writing Center!",
+        link: "https://www.msudenver.edu/writing-center/",
+        image: "../images/writingCenter.webp",
+    },
+    {
+        name: "Graduate Financial Aid",
+        search: ["Graduate Financial Aid", "Graduate", "Scholarships"],
+        description: "Here you can find information about financial aid for graduate students, scholarships, and grants.",
+        link: "https://www.msudenver.edu/graduate-school/financialaid/",
+        image: "../images/gradFinancialAid.webp",
     }
 ];
 
