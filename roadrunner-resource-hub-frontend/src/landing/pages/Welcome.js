@@ -1,6 +1,7 @@
 import React from "react";
 import ResourceCard from "../../student_resources/components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
+import Events from "../../student_resources/components/EventsComponent";
 
 const Welcome = () => {
   return (
@@ -16,9 +17,8 @@ const Welcome = () => {
           </p>
         </div>
 
-        <div className="welcome-container">
-       
-       <Events /> {/* This will display the events*/}
+        <div className="events-carousel">
+          <Events /> {/* This will display the events*/}
        </div>
 
         <div className="welcome-container">

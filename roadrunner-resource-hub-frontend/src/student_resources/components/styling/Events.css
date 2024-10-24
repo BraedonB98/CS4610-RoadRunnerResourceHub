@@ -7,13 +7,26 @@
     padding: 20px;
     overflow: hidden; /* Hide extra cards */
     width: 100%;
+    background-color: var(--colorBackground);
+}
+
+.events-carousel {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    overflow: hidden; /* Hide extra cards */
+    width: 100%;
+    background-color: var(--colorBackground);
+
 }
  
 /* Each event card styling */
 .event-card {
     display: flex;
     flex-direction: column;
-    background: var(--colorSecondary);
+    background: var(--colorOnImages);
     border: 1px solid #ddd;
     border-radius: 1rem;
     width: calc(33.33% - 20px);
@@ -21,7 +34,7 @@
     padding: 0;
     text-align: center;
     transition: all 0.3s;
-    margin: 1rem;
+    margin: 0;
     opacity: 0;
     transform: translateX(100%);
 }

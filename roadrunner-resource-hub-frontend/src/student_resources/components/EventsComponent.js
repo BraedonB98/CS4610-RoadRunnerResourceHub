@@ -11,7 +11,7 @@ const events = [
         time: "5:00 PM",
         location: "Tivoli 320",
         description: "Join the Student Government Assembly to learn about upcoming events and initiatives.",
-        image: "../images/SGA.jpg",
+        image: "../images/sga.png",
     },
  
     {
@@ -20,7 +20,7 @@ const events = [
         time: "All Day",
         location: "MSU Denver",
         description: "Donate new socks to the MSU Denver Food Bank.",
-        image: "../images/Socktober.jpg",
+        image: "../images/socktober.jpeg",
     },
  
     {
@@ -29,8 +29,35 @@ const events = [
         time: "10:00 AM - 2:00 PM",
         location: "Tivoli Turnhalle",
         description: "Network with potential employers and discover internship opportunities.",
-        image: "../images/CareerFair.jpg",
-    }
+        image: "../images/careerFair.jpg",
+    },
+
+    {
+        name: "Virtual Career Fair",
+        date: "Every other Thursday",
+        time: "5:00 PM",
+        location: "Tivoli 320",
+        description: "Join the Student Government Assembly to learn about upcoming events and initiatives.",
+        image: "../images/virtualCF.jpeg",
+    },
+
+    {
+        name: "Hackathon",
+        date: "October 1st - October 31st",
+        time: "All Day",
+        location: "MSU Denver",
+        description: "Donate new socks to the MSU Denver Food Bank.",
+        image: "../images/hackathon.jpeg",
+    },
+
+    {
+        name: "Thanksgiving Food Drive",
+        date: "October 15th",
+        time: "10:00 AM - 2:00 PM",
+        location: "Tivoli Turnhalle",
+        description: "Network with potential employers and discover internship opportunities.",
+        image: "../images/thanksgivingFD.jpeg",
+    },
  
 ];
  
