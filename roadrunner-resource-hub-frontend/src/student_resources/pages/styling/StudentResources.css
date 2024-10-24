@@ -1,4 +1,48 @@
 
+/* Student Resources Page Styling */ 
+
+.homePage-background,
+.NewStudents-background,
+.ContinuingStudents-background,
+.GraduatingStudents-background {
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    z-index: 1;
+}
+.homePage-background::before,
+.NewStudents-background::before,
+.ContinuingStudents-background::before,
+.GraduatingStudents-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay to improve text readability */
+    z-index: -1;
+}
+
+.homePage-background {
+    background-image: url(../../../../public/images/homeBackground.jpg);
+}
+
+.NewStudents-background {
+    background-image: url(../../../../public/images/NewStudentsBackground.jpg);
+}
+
+.ContinuingStudents-background {
+    background-image: url(../../../../public/images/ContinuingStudentsBackground.jpg);
+}
+
+.GraduatingStudents-background {
+    background-image: url(../../../../public/images/GraduationBackground.jpg);
+}
+
+
 .welcome-container{
     display: flex;
     justify-content: center;
@@ -22,12 +66,15 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     border-radius: 1rem 1rem 1rem 1rem ;
     overflow: hidden;
+    align-items: stretch;
 }
 
 .welcome-card p{
     font-size: 1rem;
     margin: 0;
     padding: 1rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 .welcome-image{
@@ -48,6 +95,26 @@
 .page-welcometext{
     font-size: 16px;
     padding-top: 1rem;
+    color: white;
+}
+
+.page-welcometext p{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.welcomePage-text{
+    font-size: 16px;
+    padding-top: 1rem;
+    color: white;
+}
+
+.welcomePage-text p{
+    font-size: 16px;
+    padding-top: 1rem;
+    font-weight: 500;
+    color: white;
 }
 
 .welcome-card:hover{
@@ -55,6 +122,13 @@
     box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.26);
     border-radius: 1rem 1rem 1rem 1rem;
     /* background: var(--colorSecondaryVariant); */
+    
+}
+
+@media (min-width: 768px) {
+    .welcome-card{
+        width: 30%;
+    }
     
 }
 

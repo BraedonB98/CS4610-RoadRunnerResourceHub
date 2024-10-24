@@ -2,6 +2,8 @@
 
 Welcome to the Road Runner Resource Hub Project. The purpose of this project is to be able to provide MSU Denver students with all the resources they actually need during their time here at MSU Denver. The official MSU Denver website is cluttered, filled with too many links, overwhelming and unsearchable. The RoadRunner Resource Hub allows us to condense down this information into a more readable and digestible format.
 
+# Frontend
+
 ## Running Product (to future server admin)
 
 Bellow are listed instructions, resources, and details for accessing, deploying and maintaining the code base for the Road Runner Resource Hub
@@ -36,3 +38,28 @@ Bellow are listed instructions, resources, and details for accessing, deploying 
      - run "firebase deploy" and follow on screen instructions
 
 ## Developmental Roadmap
+
+
+# Backend
+## API Calls
+note all api calls with by /api/<category>/<resourceRequested> formatting after host id. ex. localhost:5000/api/user/create user
+
+### User (/user)
+Without Authentication 
+- POST /createuser  - will create a new user
+- POST /login  - will check if user is in the database, if there is they will be given a session token to be logged in.
+With Authentication
+- PATCH /:uid/info/photo - will change the users profile photo
+
+
+### Resources(/resources)
+- GET /newstudent - will give a list of resources for new students
+- GET /continuingstudent - will give a list of resources for a continueing student
+- GET /graduatingstudent - will give a list of resources for a graduating student
+
+With Authentication 
+- GET /resources/:uid - will give a list of resources a user has saved in their profile (array of objects)
+
+
+## IMPORTANT NOTES
+- need to change user model to reflect changes in create user controller
