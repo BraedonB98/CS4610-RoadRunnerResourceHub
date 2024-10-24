@@ -43,6 +43,7 @@ Bellow are listed instructions, resources, and details for accessing, deploying 
 # Backend
 ## API Calls
 note all api calls with by /api/<category>/<resourceRequested> formatting after host id. ex. localhost:5000/api/user/create user
+
 ### User (/user)
 Without Authentication 
 - POST /createuser  - will create a new user
