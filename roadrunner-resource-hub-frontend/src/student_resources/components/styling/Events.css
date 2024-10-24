@@ -1,0 +1,69 @@
+/* Main container for the events */
+.events-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    overflow: hidden; /* Hide extra cards */
+    width: 100%;
+}
+ 
+/* Each event card styling */
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--colorSecondary);
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    width: calc(33.33% - 20px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s;
+    margin: 1rem;
+    opacity: 0;
+    transform: translateX(100%);
+}
+ 
+.event-card:nth-child(1),
+.event-card:nth-child(2),
+.event-card:nth-child(3) {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+ 
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+ 
+/* Pagination buttons container */
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+ 
+/* Pagination buttons styling */
+.pagination-buttons button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+ 
+.pagination-buttons button:hover {
+    background-color: #0056b3;
+}
+ 
+.pagination-buttons button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
