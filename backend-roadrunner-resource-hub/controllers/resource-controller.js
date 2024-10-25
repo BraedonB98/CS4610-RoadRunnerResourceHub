@@ -11,7 +11,7 @@ res.status(200).json({resources: []});
 };
 
 const getContinuingStudentResources = async (req, res, next) => {
-//returns a list of resources for continueing students
+//returns a list of resources for continuing students
 res.status(200).json({resources: []});
 };
 
