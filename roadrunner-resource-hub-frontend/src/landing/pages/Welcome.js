@@ -37,6 +37,8 @@ const Welcome = () => {
 
               <ResourceCard name="Canvas" />
 
+              <ResourceCard name="Student Email" />
+
               <ResourceCard name= "Financial Aid" />
 
               <ResourceCard name="Degree Progress Report" />
@@ -45,7 +47,7 @@ const Welcome = () => {
 
               <ResourceCard name= "VMock" />
 
-              <ResourceCard name="Student Email" />
+              <ResourceCard name="Register for Classes" />
 
           </div>
 

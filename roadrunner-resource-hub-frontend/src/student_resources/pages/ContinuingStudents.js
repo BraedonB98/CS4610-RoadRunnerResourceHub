@@ -2,8 +2,23 @@ import React from "react";
 import ResourceCard from "../components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
 
+import { AiFillFileAdd } from "react-icons/ai";
+import { useState } from "react";
+import AddResourceModal from "../components/AddResourceModal";
+
 // This is the MiddleYears page component for students in their second and third year at MSU Denver(Sophomore/Junior)
 const MiddleYears = () => {
+
+    const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
+
+    const openModal = () => { // This function will open the modal
+        setShowModal(true);
+    }
+
+    const closeModal = () => { // This function will close the modal
+        setShowModal(false);
+    }
+
     return(
         <React.Fragment>
 
@@ -13,6 +28,8 @@ const MiddleYears = () => {
                     <h1>Welcome Continuing Students!</h1>
                     <p>Here are some resources you may find useful as you continue your journey at MSU Denver!</p>
                 </div>
+
+                <button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>
 
                 <div className="welcome-container">
 
@@ -25,6 +42,9 @@ const MiddleYears = () => {
                     <ResourceCard name= "Writing Center" />
 
                 </div>
+
+                    {/* This is the modal that will pop up when the "Add New Resource" button is clicked */}
+                    <AddResourceModal show={showModal} onCancel={closeModal} />
 
             </div>
 

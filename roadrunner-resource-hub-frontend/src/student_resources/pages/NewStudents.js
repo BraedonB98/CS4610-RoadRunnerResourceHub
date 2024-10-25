@@ -12,11 +12,11 @@ const FirstYear = () => {
 
     const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
 
-    const openModal = () => {
+    const openModal = () => { // This function will open the modal
         setShowModal(true);
     }
 
-    const closeModal = () => {
+    const closeModal = () => { // This function will close the modal
         setShowModal(false);
     }
 
@@ -47,7 +47,8 @@ const FirstYear = () => {
 
                 </div>
 
-                <AddResourceModal show={showModal} onCancel={closeModal} />
+                {/* This is the modal that will pop up when the "Add New Resource" button is clicked */}
+                <AddResourceModal show={showModal} onCancel={closeModal} /> 
 
             </div>
 

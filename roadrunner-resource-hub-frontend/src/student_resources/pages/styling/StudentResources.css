@@ -1,6 +1,14 @@
 
 /* Student Resources Page Styling */ 
 
+/* Styling to help getting rid of white space on the right side of the page */
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .homePage-background,
 .NewStudents-background,
 .ContinuingStudents-background,
@@ -10,8 +18,11 @@
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
+    max-width: 100vw;
+    width: 100%;
     z-index: 1;
 }
+
 .homePage-background::before,
 .NewStudents-background::before,
 .ContinuingStudents-background::before,

@@ -138,6 +138,13 @@ const resources = [
         description: "Here you can find information about financial aid for graduate students, scholarships, and grants.",
         link: "https://www.msudenver.edu/graduate-school/financialaid/",
         image: "../images/gradFinancialAid.webp",
+    },
+    {
+        name: "Register for Classes",
+        search: ["Register for Classes", "Registration", "Courses"],
+        description: "Here you can register for classes, view your class schedule, and more!",
+        link: "https://ssb.msudenver.edu/StudentRegistrationSsb/ssb/registration",
+        image: "../images/Registration.jpg",
     }
 ];
 
