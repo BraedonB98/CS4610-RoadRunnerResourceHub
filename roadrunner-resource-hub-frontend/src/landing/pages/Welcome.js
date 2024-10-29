@@ -4,6 +4,7 @@ import AddResourceModal from "../../student_resources/components/AddResourceModa
 import { useState } from "react";
 import { AiFillFileAdd } from "react-icons/ai";
 import "../../student_resources/pages/styling/StudentResources.css";
+import EventsComponent from "../../student_resources/components/EventsComponent"; // Ensure this path matches your structure
 
 const Welcome = () => {
 
