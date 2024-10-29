@@ -131,7 +131,8 @@ html, body{
 .new-resource-button{
     background: limegreen;
     color: white;
-    border: none;
+    border-radius: 1rem;
+    border-color: black;
     padding: 0.5rem 1rem;
     margin: 1rem;
     border-radius: 0.5rem;
