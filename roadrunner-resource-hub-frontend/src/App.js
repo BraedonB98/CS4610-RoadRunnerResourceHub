@@ -11,6 +11,8 @@ import Welcome from './landing/pages/Welcome';
 import NewStudents from './student_resources/pages/NewStudents';
 import ContinuingStudents from './student_resources/pages/ContinuingStudents';
 import GraduatingStudents from './student_resources/pages/GraduatingStudents';
+import Login from './student_resources/pages/Login';
+
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
               <Route path="/NewStudents" exact element={<NewStudents />} />
               <Route path="/ContinuingStudents" exact element={<ContinuingStudents />} />
               <Route path="/GraduatingStudents" exact element={<GraduatingStudents />} />
+              <Route path="/Login" exact element={<Login />} /> 
+
 
             </Routes>
           </main>
