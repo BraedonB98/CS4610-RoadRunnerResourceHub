@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 
 import MainNavigation from './shared/components/Navigation/MainNavigation';
@@ -21,6 +22,7 @@ function App() {
         <MainNavigation />
         <div className="content-wrap">
           <main className="main-content">
+            <Toaster />
             <Routes>
               <Route path="/" exact element={<Welcome />} />
 

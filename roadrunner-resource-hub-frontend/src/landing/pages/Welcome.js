@@ -33,6 +33,8 @@ const Welcome = () => {
 
         <button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>
 
+        <EventsComponent />
+
         <div className="welcome-container">
           {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
 

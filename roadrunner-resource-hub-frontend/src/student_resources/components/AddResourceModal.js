@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import toast from 'react-hot-toast';
 
 import Modal from '../../shared/components/UIElements/Modal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
@@ -56,15 +57,24 @@ const AddResourceModal = props => {
     }
 
     //Function to handle the form submission
+    const resourceFormValidation = () => {
+        if (title.trim() === '' || description.trim() === '' || link.trim() === '' || image.trim() === '') {
+            //Display an error message if any of the fields are empty
+            console.log('Please enter all the required information');
+            toast.error('Please enter all the required information!');
+            return;
+        } else {
+            toast.success('Resource added successfully!');
+            props.onCancel();
+        }
+    }
+
+    //Function to handle the form submission
     const submitHandler = (event) => {
         event.preventDefault();
 
         //Validate the form fields
-        if (title.trim() === '' || description.trim() === '' || link.trim() === '' || image.trim() === '') {
-            //Display an error message if any of the fields are empty
-            console.log('Please enter all the required information');
-            return;
-        }
+        resourceFormValidation();
 
         //Add the resource to the database
         console.log('Adding resource to the database...');
@@ -73,11 +83,33 @@ const AddResourceModal = props => {
         console.log('Link:', link);
         console.log('Image:', image);
 
+        //Send a request to the backend to add the resource to the database
+        const addResource = async () => {
+            try {
+                const responseData = await sendRequest(
+                    'http://localhost:5000/api/resources',
+                    'POST',
+                    JSON.stringify({
+                        title: title,
+                        description: description,
+                        link: link,
+                        image: image
+                    }),
+                    {
+                        'Content-Type': 'application/json'
+                    }
+                );
+
+                console.log(responseData);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        addResource();
+
         //Reset the form fields
         resetForm();
-
-        //Close the modal
-        props.onCancel();
 
     }
 
@@ -91,6 +123,9 @@ const AddResourceModal = props => {
             show={props.show}
             header="Add a Resource"
             >
+            
+            {isLoading && <LoadingSpinner asOverlay />}
+
             <form className="resource-form">
 
                 <label htmlFor="title">Title</label>
@@ -108,6 +143,8 @@ const AddResourceModal = props => {
                 <label htmlFor="image">Image</label>
 
                 <input type="file" id="image" name="image" onChange={imageChangeHandler} value={image} />
+
+                {error && <p className="error-message">{error}</p>}
 
                 <div className= "button-container">
 
