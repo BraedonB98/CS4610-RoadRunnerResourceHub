@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext, useState} from "react";
 import ResourceCard from "../components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
-
+import { AuthContext } from "../../shared/context/auth-context";
 import { AiFillFileAdd } from "react-icons/ai";
-import { useState } from "react";
 import AddResourceModal from "../components/AddResourceModal";
+
 
 // This is the MiddleYears page component for students in their second and third year at MSU Denver(Sophomore/Junior)
 const MiddleYears = () => {
+    const auth = useContext(AuthContext);
 
     const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
 
@@ -29,7 +30,7 @@ const MiddleYears = () => {
                     <p>Here are some resources you may find useful as you continue your journey at MSU Denver!</p>
                 </div>
 
-                <button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>
+                {auth.isLoggedIn && (<button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>)}
 
                 <div className="welcome-container">
 
