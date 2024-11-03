@@ -11,7 +11,7 @@ import Welcome from './landing/pages/Welcome';
 import NewStudents from './student_resources/pages/NewStudents';
 import ContinuingStudents from './student_resources/pages/ContinuingStudents';
 import GraduatingStudents from './student_resources/pages/GraduatingStudents';
-import Login from './student_resources/pages/Login';
+import Login from './users/pages/AuthPage';
 
 
 function App() {
