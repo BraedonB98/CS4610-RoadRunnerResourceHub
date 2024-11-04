@@ -84,11 +84,12 @@ const AddResourceModal = props => {
         console.log('Image:', image);
 
         //Send a request to the backend to add the resource to the database
+        // WORK IN PROGRESS
         const addResource = async () => {
             try {
                 const responseData = await sendRequest(
-                    'http://localhost:5000/api/resources',
-                    'POST',
+                    'http://localhost:5000/api/resource/resources', // Temporary URL to test the request
+                    "POST",
                     JSON.stringify({
                         title: title,
                         description: description,

@@ -1,27 +1,65 @@
-import React from "react";
-import { NavLink } from 'react-router-dom'
+import React, { useContext, useState } from "react";
+import NavItem from "./NavItem";
+import DropDownMenu from "../UIElements/DropDownMenu";
+import DropDownItem from "../UIElements/DropDownItem";
+import { AuthContext } from "../../context/auth-context";
+import { useNavigate } from "react-router-dom";
 
-import './styling/NavLinks.css';
+import "./styling/NavLinks.css";
 
-const NavLinks = props => {
-    
-    return (
-        <ul className = "nav-links">
-            <li>
-                <NavLink to ="/" exact>Home</NavLink>
-            </li>
-            <li>
-                <NavLink to = {`/NewStudents`}> New Students </NavLink>
-            </li>
-            <li>
-                <NavLink to = {`/ContinuingStudents`}> Continuing Students </NavLink>
-            </li>
-            <li>
-                <NavLink to = {`/GraduatingStudents`}> Graduating Students </NavLink>
-            </li>
+const NavLinks = (props) => {
+  const navigate = useNavigate();
+  const auth = useContext(AuthContext);
+  const [showUserDropDown, setShowUserDropDown] = useState();
+  const settingsHandler = (event) => {
+    setShowUserDropDown(false);
+    navigate("/userpreferences");
+  };
+  const logoutHandler = (event) => {
+    setShowUserDropDown(false);
+    auth.logout();
+  };
+  const closeDropDownHandler = () => {
+    setShowUserDropDown(false);
+  };
+  return (
+    <ul className="nav-links">
+      <NavItem to="/" title={auth.isLoggedIn ? "DashBoard" : "Home"}></NavItem>
+      <NavItem to="/newstudents" title="New Students"></NavItem>
+      <NavItem to="/continuingstudents" title="Continuing Students"></NavItem>
+      <NavItem to="/graduatingstudents" title="Graduating Students"></NavItem>
+      
 
-        </ul>
-    )
-}
+      {!auth.isLoggedIn && (
+        <NavItem
+          onClick={closeDropDownHandler}
+          to="/login"
+          title="Login"
+        ></NavItem>
+      )}
+      
+      
+      {auth.isLoggedIn && (
+        <NavItem
+          className="Nav-Item__Button"
+          icon={`${
+            process.env.REACT_APP_ASSET_URL
+          }/${"data/uploads/images/default.svg"}`}
+          onOpen={(event) => {
+            setShowUserDropDown(!showUserDropDown);
+            console.log(showUserDropDown);
+          }}
+        >
+          {showUserDropDown && (
+            <DropDownMenu>
+              <DropDownItem onClick={settingsHandler}>Settings</DropDownItem>
+              <DropDownItem onClick={logoutHandler}>Logout</DropDownItem>
+            </DropDownMenu>
+          )}
+        </NavItem>
+      )}
+    </ul>
+  );
+};
 
 export default NavLinks;

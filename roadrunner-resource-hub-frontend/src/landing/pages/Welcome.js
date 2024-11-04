@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext, useState} from "react";
 import ResourceCard from "../../student_resources/components/ResourceCard";
 import AddResourceModal from "../../student_resources/components/AddResourceModal";
-import { useState } from "react";
+
 import { AiFillFileAdd } from "react-icons/ai";
+import { AuthContext } from "../../shared/context/auth-context";
 import "../../student_resources/pages/styling/StudentResources.css";
 import EventsComponent from "../../student_resources/components/EventsComponent"; // Ensure this path matches your structure
 
 const Welcome = () => {
-
+  const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
 
   const openModal = () => {
@@ -31,7 +32,14 @@ const Welcome = () => {
           </p>
         </div>
 
-        <button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>
+
+        <div className= "resource-button-container">
+
+          {auth.isLoggedIn && (<button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>)}
+
+         {/* <button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button> */}
+
+        </div>
 
         <EventsComponent />
 

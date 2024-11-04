@@ -16,6 +16,7 @@ const resourceRoutes = require("./routes/resource-routes");
 //-----------------MiddleWare--------------------
 app.use(bodyParser.json());
 
+
 app.use(
   "/data/frontEndRef/images",
   express.static(path.join("data", "frontEndRef", "images"))
@@ -53,9 +54,11 @@ app.use((error, req, res, next) => {
       console.log(err);
     });
   }
+  
   if (res.headerSent) {
     return next(error);
   }
+  
   res.status(error.code || 500);
   res.json({
     message: error.message || "An unknown error(imageHandling) occurred!",

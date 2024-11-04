@@ -107,6 +107,7 @@ html, body{
     font-size: 16px;
     padding-top: 1rem;
     color: white;
+    text-align: center;
 }
 
 .page-welcometext p{
@@ -119,6 +120,7 @@ html, body{
     font-size: 16px;
     padding-top: 1rem;
     color: white;
+    text-align: center;
 }
 
 .welcomePage-text p{
@@ -126,6 +128,13 @@ html, body{
     padding-top: 1rem;
     font-weight: 500;
     color: white;
+}
+
+.resource-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .new-resource-button{
