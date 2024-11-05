@@ -5,6 +5,7 @@ import Modal from '../../shared/components/UIElements/Modal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 import { useHttpClient } from '../../shared/hooks/http-hook';
+import { auth } from '../../shared/util/auth-context';
 
 
 import './styling/AddResourceModal.css';
@@ -94,6 +95,8 @@ const AddResourceModal = props => {
                         title: title,
                         description: description,
                         link: link,
+                        audience: props.audience,
+                       // creator: 
                         image: image
                     }),
                     {
@@ -104,6 +107,9 @@ const AddResourceModal = props => {
                 console.log(responseData);
             } catch (err) {
                 console.log(err);
+                
+                // Display an error message if there is a problem adding the resource to the database
+                toast.error('An error occurred. Please try again.');
             }
         }
 
