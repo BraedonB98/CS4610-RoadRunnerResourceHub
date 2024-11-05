@@ -58,7 +58,7 @@ const FirstYear = () => {
                 </div>
 
                 {/* This is the modal that will pop up when the "Add New Resource" button is clicked */}
-                <AddResourceModal show={showModal} onCancel={closeModal} /> 
+                <AddResourceModal show={showModal} onCancel={closeModal} audience= 'new' />
 
             </div>
 

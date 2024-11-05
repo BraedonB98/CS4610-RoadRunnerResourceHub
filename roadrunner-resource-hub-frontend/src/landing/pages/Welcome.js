@@ -66,7 +66,7 @@ const Welcome = () => {
 
           </div>
 
-          <AddResourceModal show={showModal} onCancel={closeModal} />
+          <AddResourceModal show={showModal} onCancel={closeModal} audience= 'welcome' />
       </div>
 
         </React.Fragment>
