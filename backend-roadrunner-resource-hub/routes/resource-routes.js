@@ -10,7 +10,7 @@ router.get("/resources/newstudent", resourceController.getNewStudentResources);
 router.get("/resources/continuingstudent", resourceController.getContinuingStudentResources);
 router.get("/resources/graduatingstudent", resourceController.getGraduatingStudentResources);
 
-router.use(checkAuth); // every route after this requires an token
+// router.use(checkAuth); // every route after this requires an token
 
 router.get("/resources/:uid", resourceController.getUserResources);
 

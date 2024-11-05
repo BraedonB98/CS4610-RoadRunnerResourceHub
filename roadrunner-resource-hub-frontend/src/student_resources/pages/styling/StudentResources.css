@@ -1,6 +1,14 @@
 
 /* Student Resources Page Styling */ 
 
+/* Styling to help getting rid of white space on the right side of the page */
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 .homePage-background,
 .NewStudents-background,
 .ContinuingStudents-background,
@@ -10,8 +18,11 @@
     background-repeat: no-repeat;
     background-position: center;
     min-height: 100vh;
+    max-width: 100vw;
+    width: 100%;
     z-index: 1;
 }
+
 .homePage-background::before,
 .NewStudents-background::before,
 .ContinuingStudents-background::before,
@@ -96,6 +107,7 @@
     font-size: 16px;
     padding-top: 1rem;
     color: white;
+    text-align: center;
 }
 
 .page-welcometext p{
@@ -108,6 +120,7 @@
     font-size: 16px;
     padding-top: 1rem;
     color: white;
+    text-align: center;
 }
 
 .welcomePage-text p{
@@ -115,6 +128,30 @@
     padding-top: 1rem;
     font-weight: 500;
     color: white;
+}
+
+.resource-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.new-resource-button{
+    background: limegreen;
+    color: white;
+    border-radius: 1rem;
+    border-color: black;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.new-resource-button:hover{
+    background: lightgreen;
 }
 
 .welcome-card:hover{
