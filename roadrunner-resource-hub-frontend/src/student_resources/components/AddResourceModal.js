@@ -5,7 +5,6 @@ import Modal from '../../shared/components/UIElements/Modal';
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner';
 
 import { useHttpClient } from '../../shared/hooks/http-hook';
-import { auth } from '../../shared/util/auth-context';
 
 
 import './styling/AddResourceModal.css';

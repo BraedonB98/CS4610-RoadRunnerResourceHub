@@ -32,9 +32,6 @@ const Welcome = () => {
           </p>
         </div>
 
-<<<<<<< HEAD
-        {auth.isLoggedIn && (<button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>)}
-=======
 
         <div className= "resource-button-container">
 
@@ -45,7 +42,6 @@ const Welcome = () => {
         </div>
 
         <EventsComponent />
->>>>>>> resourcemodal-backend
 
         <div className="welcome-container">
           {/* This is the container for the cards, put all the cards in here to make them appear in a row */}
