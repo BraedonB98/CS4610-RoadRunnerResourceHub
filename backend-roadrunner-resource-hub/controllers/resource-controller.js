@@ -7,23 +7,87 @@ const Resource = require("../models/resource-model");
 
 const getNewStudentResources = async (req, res, next) => {
 //returns a list of resources for the new students
-res.status(200).json({resources: []});
+
+    let resources;
+    try{
+        resources = await Resource.find({audience: "new"}); // 
+    }
+    catch(error){
+        return next(new HttpError("Could not access database", 500));
+    }
+    if(!resources || resources.length === 0){
+        return next(new HttpError("No resources found", 404));
+    }
+
+    res.status(200).json({resources: resources});
+
+
 };
 
 const getContinuingStudentResources = async (req, res, next) => {
 //returns a list of resources for continuing students
-res.status(200).json({resources: []});
+
+    let resources;
+    try{
+        resources = await Resource.find({audience: "continuing"}); // 
+    }
+    catch(error){
+        return next(new HttpError("Could not access database", 500));
+    }
+    if(!resources || resources.length === 0){
+        return next(new HttpError("No resources found", 404));
+    }
+
+    res.status(200).json({resources: resources}); 
+
 };
 
 const getGraduatingStudentResources = async (req, res, next) => {
 
 //returns a list of resources for graduating students
-res.status(200).json({resources: []});
+    
+        let resources;
+        try{
+            resources = await Resource.find({audience: "graduating"}); // 
+        }
+        catch(error){
+            return next(new HttpError("Could not access database", 500));
+        }
+        if(!resources || resources.length === 0){
+            return next(new HttpError("No resources found", 404));
+        }
+    
+        res.status(200).json({resources: resources});
 };
 
 const getUserResources = async (req, res, next) => {
 //returns a list of resources for the user
-res.status(200).json({resources: []});
+
+    const userId = req.params.uid;
+    
+    let user;
+    try {
+        user
+    }
+    catch(error){
+        return next(new HttpError("Could not access database", 500));
+    }
+    if(!user){
+        return next(new HttpError("No user found", 404));
+    }
+
+    let resources;
+    try{
+        resources = await Resource.find({users: userId}); // 
+    }
+    catch(error){
+        return next(new HttpError("Could not access database", 500));
+    }
+    if(!resources || resources.length === 0){
+        return next(new HttpError("No resources found", 404));
+    }
+
+    res.status(200).json({resources: resources});
 };
 
 const createResource = async (req, res, next) => {

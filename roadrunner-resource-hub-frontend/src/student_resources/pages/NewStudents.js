@@ -33,7 +33,15 @@ const FirstYear = () => {
                     <p>Such as getting to know the campus, your class schedule, and other resources to help you succeed!</p>
                 </div>
 
+<<<<<<< HEAD
                 {auth.isLoggedIn && (<button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>)}
+=======
+                <div className= "resource-button-container">
+
+                    {auth.isLoggedIn && (<button className="new-resource-button" onClick={openModal}> Add New Resource <AiFillFileAdd /> </button>)}
+
+                </div>
+>>>>>>> resourcemodal-backend
 
                 <div className="welcome-container">
 
