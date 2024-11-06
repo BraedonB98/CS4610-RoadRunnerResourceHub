@@ -8,7 +8,7 @@ const events = [
         time: "5:00 PM",
         location: "Tivoli 320",
         description: "Join the Student Government Assembly to learn about upcoming events and initiatives.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/Campus1.jpg",
     },
     {
         name: "Socktober",
@@ -16,7 +16,7 @@ const events = [
         time: "All Day",
         location: "MSU Denver",
         description: "Donate new socks to the MSU Denver Food Bank.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/socktober.jpg",
     },
     {
         name: "Career Fair",
@@ -24,7 +24,7 @@ const events = [
         time: "10:00 AM - 2:00 PM",
         location: "Tivoli Turnhalle",
         description: "Network with potential employers and discover internship opportunities.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/TivoliMain.webp",
     },
     {
         name: "Health & Wellness Expo",
@@ -32,7 +32,7 @@ const events = [
         time: "10:00 AM - 5:00 PM",
         location: "Student Union",
         description: "Explore resources for mental, physical, and emotional well-being.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/Health.jpg",
     },
     {
         name: "Alumni Networking Night",
@@ -40,7 +40,7 @@ const events = [
         time: "6:00 PM - 9:00 PM",
         location: "Alumni Hall",
         description: "Meet MSU Denver alumni and expand your professional network.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/JSSB.jpg",
     },
     {
         name: "Cultural Heritage Celebration",
@@ -48,7 +48,7 @@ const events = [
         time: "3:00 PM - 7:00 PM",
         location: "Campus Green",
         description: "Celebrate the cultural diversity of our campus with music, food, and art.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/culture.webp",
     },
     {
         name: "Leadership Workshop",
@@ -56,7 +56,7 @@ const events = [
         time: "1:00 PM - 4:00 PM",
         location: "Room 220",
         description: "Enhance your leadership skills with interactive workshops.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/tivoli.jpg",
     },
     {
         name: "Environmental Sustainability Fair",
@@ -64,7 +64,7 @@ const events = [
         time: "9:00 AM - 3:00 PM",
         location: "Tivoli Quad",
         description: "Learn about sustainability initiatives on campus and beyond.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/environment.webp",
     },
     {
         name: "Study Abroad Information Session",
@@ -72,7 +72,7 @@ const events = [
         time: "12:00 PM - 1:00 PM",
         location: "Room 310",
         description: "Discover study abroad opportunities available to students.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/Campus1.jpg",
     },
     {
         name: "Final Exam Study Jam",
@@ -80,7 +80,7 @@ const events = [
         time: "5:00 PM - 11:00 PM",
         location: "Library",
         description: "Join us for a study session with snacks and support from tutors.",
-        image: "../images/Campus1.jpg",
+        image: process.env.REACT_APP_ASSET_URL + "/data/frontendref/images/GradSchool.jpg",
     }
 ];
 
