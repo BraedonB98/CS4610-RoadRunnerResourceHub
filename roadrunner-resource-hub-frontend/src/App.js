@@ -42,7 +42,6 @@ const App = () => {
       <Route path="/NewStudents" exact element={<NewStudents />} />
       <Route path="/ContinuingStudents" exact element={<ContinuingStudents />} />
       <Route path="/GraduatingStudents" exact element={<GraduatingStudents />} />
-      <Route path="/Login" exact element={<Login />} /> 
     </Routes>
     );
   }
