@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import ResourceCard from "../../student_resources/components/ResourceCard";
 import AddResourceModal from "../../student_resources/components/AddResourceModal";
 
@@ -10,6 +10,8 @@ import EventsComponent from "../../student_resources/components/EventsComponent"
 const Welcome = () => {
   const auth = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
+  
+  const [resources, setResources] = useState([]);
 
   const openModal = () => {
     setShowModal(true);
@@ -18,6 +20,27 @@ const Welcome = () => {
   const closeModal = () => {
     setShowModal(false);
   }
+
+  useEffect(() => {
+    const fetchResources = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/resource/resources/dashboard`);
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          throw new Error(responseData.message);
+        }
+
+        const userResources = responseData.resources.filter(resource => resource.creator === auth.UID);
+        setResources(userResources);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchResources();
+  }
+  , [auth.UID]);
 
   return (
     <React.Fragment>
@@ -60,9 +83,11 @@ const Welcome = () => {
 
               <ResourceCard name="Register for Classes" />
 
+              <ResourceCard resources={resources} />
+
           </div>
 
-          <AddResourceModal show={showModal} onCancel={closeModal} audience= 'welcome' />
+          <AddResourceModal show={showModal} onCancel={closeModal} />
       </div>
 
         </React.Fragment>

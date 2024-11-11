@@ -24,7 +24,7 @@ const NavLinks = (props) => {
   };
   return (
     <ul className="nav-links">
-      <NavItem to="/" title={auth.isLoggedIn ? "DashBoard" : "Home"}></NavItem>
+      <NavItem to="/" title={auth.isLoggedIn ? "Dashboard" : "Home"}></NavItem>
       <NavItem to="/newstudents" title="New Students"></NavItem>
       <NavItem to="/continuingstudents" title="Continuing Students"></NavItem>
       <NavItem to="/graduatingstudents" title="Graduating Students"></NavItem>

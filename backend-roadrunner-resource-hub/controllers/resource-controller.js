@@ -10,7 +10,7 @@ const getNewStudentResources = async (req, res, next) => {
 
     let resources;
     try{
-        resources = await Resource.find({audience: "new"}); // 
+        resources = await Resource.find({audience: { $in: ["New Students"] }}); //
     }
     catch(error){
         return next(new HttpError("Could not access database", 500));
@@ -29,7 +29,7 @@ const getContinuingStudentResources = async (req, res, next) => {
 
     let resources;
     try{
-        resources = await Resource.find({audience: "continuing"}); // 
+        resources = await Resource.find({audience: { $in: ["Continuing Students"] }}); // 
     }
     catch(error){
         return next(new HttpError("Could not access database", 500));
@@ -48,7 +48,7 @@ const getGraduatingStudentResources = async (req, res, next) => {
     
         let resources;
         try{
-            resources = await Resource.find({audience: "graduating"}); // 
+            resources = await Resource.find({audience: { $in: ["Graduating Students"] }}); //
         }
         catch(error){
             return next(new HttpError("Could not access database", 500));
@@ -58,6 +58,23 @@ const getGraduatingStudentResources = async (req, res, next) => {
         }
     
         res.status(200).json({resources: resources});
+};
+
+const getDashboardResources = async (req, res, next) => {
+//returns a list of resources for the dashboard
+
+    let resources;
+    try{
+        resources = await Resource.find({audience: { $in: ["Dashboard"] }}); //
+    }
+    catch(error){
+        return next(new HttpError("Could not access database", 500));
+    }
+    if(!resources || resources.length === 0){
+        return next(new HttpError("No resources found", 404));
+    }
+
+    res.status(200).json({resources: resources});
 };
 
 const getUserResources = async (req, res, next) => {
@@ -91,37 +108,43 @@ const getUserResources = async (req, res, next) => {
 };
 
 const createResource = async (req, res, next) => {
-    //creates a new resource in data base
-    const {title, search, description, link, image, audience} = req.body;
+    const { title, search, description, link, audience } = req.body;
+    const userId = req.userData._id;
+
     let existingResource;
     try {
         existingResource = await Resource.findOne({ title: title });
+    } catch (error) {
+        return next(new HttpError("Resource creation failed, could not access database", 500));
     }
-    catch(error){
-        return next(new HttpError("Resource creation failed, Could not access database", 500))
+    if (existingResource) {
+        return next(new HttpError("Resource already exists", 422));
     }
-    if(existingResource){
-        return next(new HttpError("Resource already exists", 422))
-    }
+
+    // Use req.file.path if file exists, otherwise set to null or default image path
+    const imagePath = req.file ? req.file.path : "path/to/default/image.png";
+
     const createdResource = new Resource({
         title,
         search,
         description,
         link,
-        image,
-        audience
+        image: imagePath,
+        audience,
+        creator: userId,
+        users: [userId]
     });
+
     try {
         await createdResource.save();
+    } catch (error) {
+        return next(new HttpError("Resource creation failed, could not save to database", 500));
     }
-    catch(error){
-        return next(new HttpError("Resource creation failed, Could not save to database", 500))
-    }
-    res.status(201).json({resource: createdResource});
+
+    res.status(201).json({ resource: createdResource });
 };
 
-
-
+exports.getDashboardResources = getDashboardResources;
 exports.getNewStudentResources = getNewStudentResources;
 exports.getContinuingStudentResources = getContinuingStudentResources;
 exports.getGraduatingStudentResources = getGraduatingStudentResources;

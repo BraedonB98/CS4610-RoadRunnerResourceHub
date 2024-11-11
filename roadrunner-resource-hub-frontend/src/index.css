@@ -21,9 +21,9 @@ Grey #717073
   --colorOnBackground: black;
   --colorOnSurface: black;
   --colorOnError: black;
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     display: none;
-}
+} */
   --navHeight: 4rem;
 }
 

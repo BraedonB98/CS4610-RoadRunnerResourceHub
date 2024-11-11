@@ -9,7 +9,7 @@ const resourceSchema = new Schema({
   link: { type: String },
   image: { type: String },
   creator: { type: mongoose.Types.ObjectId, ref: "User" },
-  audience: { type: String },
+  audience: [{ type: String }], // array to allow for multiple audiences
   users: [{ type: mongoose.Types.ObjectId, ref: "User" }],
 });
 

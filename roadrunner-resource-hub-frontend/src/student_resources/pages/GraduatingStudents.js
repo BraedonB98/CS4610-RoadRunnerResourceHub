@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import ResourceCard from "../components/ResourceCard";
 import "../../student_resources/pages/styling/StudentResources.css";
 
@@ -13,6 +13,8 @@ const LastYear = () => {
 
     const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
 
+    const [resources, setResources] = useState([]); // This is the state that will hold the resources
+
     const openModal = () => { // This function will open the modal
         setShowModal(true);
     }
@@ -20,6 +22,34 @@ const LastYear = () => {
     const closeModal = () => { // This function will close the modal
         setShowModal(false);
     }
+
+    useEffect(() => {
+        const fetchResources = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/resource/resources/graduatingstudent');
+                const responseData = await response.json();
+
+                console.log(responseData);
+
+                if (!response.ok) {
+                    throw new Error(responseData.message);
+                }
+
+                // Filter the resources to only show the resources created by the user
+                const userResources = responseData.resources.filter(resource => resource.creator === auth.UID);
+                setResources(userResources);
+
+                console.log("User ID: ", auth.UID);
+                console.log("creator: ", userResources.creator);
+                console.log("This is the user's resources: ", userResources);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchResources();
+    }
+    , [auth.UID]);
 
     return(
         <React.Fragment>
@@ -47,10 +77,12 @@ const LastYear = () => {
 
                     <ResourceCard name="C2 Hub" />
 
+                    <ResourceCard resource={resources} />
+
                 </div>
 
                     {/* This is the modal that will pop up when the "Add New Resource" button is clicked */}
-                    <AddResourceModal show={showModal} onCancel={closeModal} audience= 'graduating' />
+                    <AddResourceModal show={showModal} onCancel={closeModal} />
 
             </div>
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import ResourceCard from "../components/ResourceCard";
 
 import { AiFillFileAdd } from "react-icons/ai";
@@ -14,6 +14,8 @@ const FirstYear = () => {
 
     const [showModal, setShowModal] = useState(false); // This is the state that will determine if the modal is open or not
 
+    const [resources, setResources] = useState([]);
+
     const openModal = () => { // This function will open the modal
         setShowModal(true);
     }
@@ -21,6 +23,34 @@ const FirstYear = () => {
     const closeModal = () => { // This function will close the modal
         setShowModal(false);
     }
+
+    useEffect(() => {
+        const fetchResources = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/resource/resources/newstudent');
+                const responseData = await response.json();
+
+                console.log(responseData);
+
+                if (!response.ok) {
+                    throw new Error(responseData.message);
+                }
+
+                // Filter the resources to only show the resources created by the user
+                const userResources = responseData.resources.filter(resource => resource.creator === auth.UID);
+                setResources(userResources);
+
+                console.log("User ID: ", auth.UID);
+                console.log("creator: ", userResources.creator);
+                console.log("This is the user's resources: ", userResources);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchResources();
+    }
+    , [auth.UID]);
 
     return (
         <React.Fragment>
@@ -51,10 +81,12 @@ const FirstYear = () => {
 
                     <ResourceCard name= "Student Email" />
 
+                    <ResourceCard resources={resources} />
+
                 </div>
 
                 {/* This is the modal that will pop up when the "Add New Resource" button is clicked */}
-                <AddResourceModal show={showModal} onCancel={closeModal} audience= 'new' />
+                <AddResourceModal show={showModal} onCancel={closeModal} />
 
             </div>
 
