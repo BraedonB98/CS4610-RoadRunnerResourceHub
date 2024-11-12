@@ -11,13 +11,6 @@ import { AuthContext } from '../../shared/context/auth-context';
 
 import './styling/AddResourceModal.css';
 
-//Features to add on the AddResourceModal:
-// 1. Connect to the backend to add a resource to the database when the submit button is clicked
-// 2. Add validation to the form fields to ensure that the user has entered the required information
-// 3. Add a loading spinner to the modal while the resource is being added to the database
-// 4. Display a success message when the resource has been added successfully
-// 5. Add error handling to display an error message if there is a problem adding the resource to the database
-
 const AddResourceModal = props => {
 
     //Import the useHttpClient hook to send requests to the backend
@@ -96,7 +89,8 @@ const AddResourceModal = props => {
         const addResource = async () => {
             try {
                 const responseData = await sendRequest(
-                    'http://localhost:5000/api/resource/resources', // Temporary URL to test the request
+                    // 'http://localhost:5000/api/resource/resources', // Temporary URL to test the request
+                    process.env.REACT_APP_BACKEND_API_URL + '/resource/resources',
                     "POST",
                     JSON.stringify({
                         title: title,
@@ -115,6 +109,10 @@ const AddResourceModal = props => {
 
                 //Display a success message if the resource was added successfully
                 toast.success('Resource added successfully!');
+
+                //Refresh the page to display the new resource
+                window.location.reload();
+                
             } catch (err) {
                 console.log(err);
                 console.log(err.message);

@@ -144,9 +144,33 @@ const createResource = async (req, res, next) => {
     res.status(201).json({ resource: createdResource });
 };
 
+const deleteResource = async (req, res, next) => {
+    const resourceId = req.params.rid;
+
+    let resource;
+    try {
+        resource = await Resource.findById(resourceId);
+    } catch (error) {
+        return next(new HttpError("Resource deletion failed, could not access database", 500));
+    }
+
+    if (!resource) {
+        return next(new HttpError("Resource not found", 404));
+    }
+
+    try {
+        await resource.remove();
+    } catch (error) {
+        return next(new HttpError("Resource deletion failed, could not remove from database", 500));
+    }
+
+    res.status(200).json({ message: "Resource deleted" });
+};
+
 exports.getDashboardResources = getDashboardResources;
 exports.getNewStudentResources = getNewStudentResources;
 exports.getContinuingStudentResources = getContinuingStudentResources;
 exports.getGraduatingStudentResources = getGraduatingStudentResources;
 exports.getUserResources = getUserResources;
 exports.createResource = createResource;
+exports.deleteResource = deleteResource;

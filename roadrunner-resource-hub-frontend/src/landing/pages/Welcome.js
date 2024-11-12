@@ -24,7 +24,8 @@ const Welcome = () => {
   useEffect(() => {
     const fetchResources = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/resource/resources/dashboard`);
+        // const response = await fetch(`http://localhost:5000/api/resource/resources/dashboard`);
+        const response = await fetch(process.env.REACT_APP_BACKEND_API_URL + '/resource/resources/dashboard');
         const responseData = await response.json();
 
         if (!response.ok) {

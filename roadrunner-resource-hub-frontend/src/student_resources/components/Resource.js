@@ -1,8 +1,13 @@
 import React from "react";
 
+import { AiFillDelete } from "react-icons/ai";
+
+import { AuthContext } from "../../shared/context/auth-context";
+
 
 // List of resources used in the ResourceCard component, each resource has a name, search keywords, description, link, and image
 // Add more resources to the list to display more resource cards
+
 const resources = [
     { // Canvas resource
         name: "Canvas",
@@ -150,12 +155,24 @@ const resources = [
 
 // Resource component that displays the resource name, description, and image
 // Will be used in the ResourceCard component to display each resource
-const Resource = ({ name,  description, link, image }) => {
+const Resource = ({ name, description, link, image, onDelete, isBackendResource }) => {
+
+    const auth = React.useContext(AuthContext);
+
     return (
         <div className="resource-card" onClick={() => window.open(link, "_blank")}>
             <img src={image} alt={name} className="resource-image" />
             <h2 className="resource-heading">{name}</h2>
             <p className="resource-description">{description}</p>
+
+            {auth.isLoggedIn && isBackendResource && // If user is logged in and resource is from the backend, display delete button
+            <button className="resource-button" onClick={(event) => {
+                event.stopPropagation(); // Prevent the click event from bubbling up to the parent div
+                onDelete(); // Call the onDelete function passed as a prop
+            }
+            }>Delete <AiFillDelete /></button>
+            }
+
         </div>
     );
 };
