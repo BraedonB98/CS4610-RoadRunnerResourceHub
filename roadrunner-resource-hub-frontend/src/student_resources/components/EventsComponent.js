@@ -1,132 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../components/styling/Events.css";
-
+ 
+// List of events used in the Events component, each event has a name, date, time, location, description, and image
+// Add more events to the list to display more event cards
+ 
 const events = [
-    {
+    { // MSU Denver Student Government Assembly Meeting
         name: "MSU Denver Student Government Assembly Meeting",
         date: "Every other Thursday",
         time: "5:00 PM",
         location: "Tivoli 320",
         description: "Join the Student Government Assembly to learn about upcoming events and initiatives.",
-        image: "../images/Campus1.jpg",
+        image: "../images/sga.png",
     },
+ 
     {
         name: "Socktober",
         date: "October 1st - October 31st",
         time: "All Day",
         location: "MSU Denver",
         description: "Donate new socks to the MSU Denver Food Bank.",
-        image: "../images/Campus1.jpg",
+        image: "../images/socktober.jpeg",
     },
+ 
     {
         name: "Career Fair",
         date: "October 15th",
         time: "10:00 AM - 2:00 PM",
         location: "Tivoli Turnhalle",
         description: "Network with potential employers and discover internship opportunities.",
-        image: "../images/Campus1.jpg",
+        image: "../images/careerFair.jpg",
     },
+
     {
-        name: "Health & Wellness Expo",
-        date: "October 20th",
-        time: "10:00 AM - 5:00 PM",
-        location: "Student Union",
-        description: "Explore resources for mental, physical, and emotional well-being.",
-        image: "../images/Campus1.jpg",
+        name: "Virtual Career Fair",
+        date: "Every other Thursday",
+        time: "5:00 PM",
+        location: "Tivoli 320",
+        description: "Join the Student Government Assembly to learn about upcoming events and initiatives.",
+        image: "../images/virtualCF.jpeg",
     },
+
     {
-        name: "Alumni Networking Night",
-        date: "October 25th",
-        time: "6:00 PM - 9:00 PM",
-        location: "Alumni Hall",
-        description: "Meet MSU Denver alumni and expand your professional network.",
-        image: "../images/Campus1.jpg",
+        name: "Hackathon",
+        date: "October 1st - October 31st",
+        time: "All Day",
+        location: "MSU Denver",
+        description: "Donate new socks to the MSU Denver Food Bank.",
+        image: "../images/hackathon.jpeg",
     },
+
     {
-        name: "Cultural Heritage Celebration",
-        date: "November 1st",
-        time: "3:00 PM - 7:00 PM",
-        location: "Campus Green",
-        description: "Celebrate the cultural diversity of our campus with music, food, and art.",
-        image: "../images/Campus1.jpg",
+        name: "Thanksgiving Food Drive",
+        date: "October 15th",
+        time: "10:00 AM - 2:00 PM",
+        location: "Tivoli Turnhalle",
+        description: "Network with potential employers and discover internship opportunities.",
+        image: "../images/thanksgivingFD.jpeg",
     },
-    {
-        name: "Leadership Workshop",
-        date: "November 3rd",
-        time: "1:00 PM - 4:00 PM",
-        location: "Room 220",
-        description: "Enhance your leadership skills with interactive workshops.",
-        image: "../images/Campus1.jpg",
-    },
-    {
-        name: "Environmental Sustainability Fair",
-        date: "November 5th",
-        time: "9:00 AM - 3:00 PM",
-        location: "Tivoli Quad",
-        description: "Learn about sustainability initiatives on campus and beyond.",
-        image: "../images/Campus1.jpg",
-    },
-    {
-        name: "Study Abroad Information Session",
-        date: "November 7th",
-        time: "12:00 PM - 1:00 PM",
-        location: "Room 310",
-        description: "Discover study abroad opportunities available to students.",
-        image: "../images/Campus1.jpg",
-    },
-    {
-        name: "Final Exam Study Jam",
-        date: "December 5th",
-        time: "5:00 PM - 11:00 PM",
-        location: "Library",
-        description: "Join us for a study session with snacks and support from tutors.",
-        image: "../images/Campus1.jpg",
-    }
+ 
 ];
-
-const EventsComponent = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const cardsPerSlide = 3;
-
+ 
+const Events = () => {
+    const [currentIndex, setCurrentIndex] = useState(0); // To track the current slide index
+    const cardsPerSlide = 3; // Number of cards to display per slide
+ 
+    // Calculate the range of events to display
+    const currentEvents = events.slice(currentIndex, currentIndex + cardsPerSlide);
+ 
     const nextSlide = () => {
-        if (currentIndex + cardsPerSlide < events.length) {
-            setCurrentIndex(currentIndex + 1); // Move by one card
-        }
+      if (currentIndex + cardsPerSlide < events.length) {
+        setCurrentIndex(currentIndex + cardsPerSlide);
+      }
     };
-
+ 
     const prevSlide = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1); // Move by one card
-        }
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - cardsPerSlide);
+      }
     };
-
+ 
     return (
-        <div className="events-carousel">
-            <button className="arrow-button left-arrow" onClick={prevSlide} disabled={currentIndex === 0}>
-                &#8592;
-            </button>
-
-            <div className="events-wrapper">
-                {events.slice(currentIndex, currentIndex + cardsPerSlide).map((event, index) => (
-                    <div key={index} className="event-card hover-effect">
-                        <div className="event-card-line"></div>
-                        <img className="event-image" src={event.image} alt={event.name} />
-                        <div className="event-card-content">
-                            <h2 className="event-name">{event.name}</h2>
-                            <p className="event-date-time">{event.date} at {event.time}</p>
-                            <p className="event-description">{event.description}</p>
-                            <p className="event-location">{event.location}</p>
-                            <a href="#" className="event-read-more">Read More</a>
-                        </div>
-                    </div>
-                ))}
+      <div>
+        <h1 className="events-header">Upcoming Events</h1>
+        <div className="events-container">
+          {currentEvents.map((event, index) => (
+            <div className="event-card" key={index}>
+              <img className="event-image" src={event.image} alt={event.name} />
+              <h2 className="event-name">{event.name}</h2>
+              <p className="event-date-time">{event.date} at {event.time}</p>
+              <p className="event-location">{event.location}</p>
+              <p className="event-description">{event.description}</p>
             </div>
-
-            <button className="arrow-button right-arrow" onClick={nextSlide} disabled={currentIndex + cardsPerSlide >= events.length}>
-                &#8594;
-            </button>
+          ))}
         </div>
+ 
+        {/* Pagination Buttons */}
+        <div className="pagination-buttons">
+          <button onClick={prevSlide} disabled={currentIndex === 0}>
+            Previous
+          </button>
+          <button onClick={nextSlide} disabled={currentIndex + cardsPerSlide >= events.length}>
+            Next
+          </button>
+        </div>
+      </div>
     );
-};
-
-export default EventsComponent;
+  };
+ 
+  export default Events;
