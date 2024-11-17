@@ -23,7 +23,7 @@ const AddResourceModal = props => {
     const [description, setDescription] = useState('');
     const [link, setLink] = useState('');
     const [audience, setAudience] = useState([]);
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState();
 
     //Function to handle the change event for the title input field
     const titleChangeHandler = (event) => {
@@ -42,7 +42,7 @@ const AddResourceModal = props => {
 
     //Function to handle the change event for the image input field
     const imageChangeHandler = (event) => {
-        setImage(event.target.value);
+        setImage(event.target.files[0]);
     }
 
     //Function to reset the form fields
@@ -56,7 +56,7 @@ const AddResourceModal = props => {
 
     //Function to handle the form submission
     const resourceFormValidation = () => {
-        if (title.trim() === '' || description.trim() === '' || link.trim() === '' || image.trim() === '') {
+        if (title.trim() === '' || description.trim() === '' || link.trim() === '' || !image || audience.length === 0) {
             //Display an error message if any of the fields are empty
             console.log('Please enter all the required information');
             toast.error('Please enter all the required information!');
@@ -67,79 +67,49 @@ const AddResourceModal = props => {
         }
     }
 
-    //Function to handle the form submission
-    const submitHandler = (event) => {
+    const submitHandler = async (event) => {
         event.preventDefault();
-
-        //Validate the form fields, if the form is not valid, don't submit the form
+    
+        // Validate form fields
         if (!resourceFormValidation()) {
             return;
         }
-
-        //Add the resource to the database
-        console.log('Adding resource to the database...');
-        console.log('Title:', title);
-        console.log('Description:', description);
-        console.log('Audience:', audience);
-        console.log('Link:', link);
-        console.log('Image:', image);
-
-        //Send a request to the backend to add the resource to the database
-        // WORK IN PROGRESS
-        const addResource = async () => {
-            try {
-                const responseData = await sendRequest(
-                    // 'http://localhost:5000/api/resource/resources', // Temporary URL to test the request
-                    process.env.REACT_APP_BACKEND_API_URL + '/resource/resources',
-                    "POST",
-                    JSON.stringify({
-                        title: title,
-                        description: description,
-                        link: link,
-                        audience: audience.map(audience => audience.value),
-                        image: image
-                    }),
-                    {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + auth.token
-                    }
-                );
-
-                console.log(responseData);
-
-                //Display a success message if the resource was added successfully
-                toast.success('Resource added successfully!');
-
-                //Refresh the page to display the new resource
-                window.location.reload();
-                
-            } catch (err) {
-                console.log(err);
-                console.log(err.message);
-                
-                if(err.message === 'Failed to fetch'){
-                    //Display an error message if there was a problem adding the resource to the database
-                    toast.error('Could not add resource. Please try again later.');
-                } else if(err.message === 'Resource already exists'){
-                    //Display an error message if the resource already exists
-                    toast.error('Resource already exists!');
-                } else if(err.message === "Resource creation failed, Could not access database"){
-                    //Display an error message if no resources were found
-                    toast.error('No resources found');
+    
+        // Prepare FormData
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('link', link);
+        formData.append('image', image); // Add the image file
+        audience.forEach(aud => formData.append('audience', aud.value)); // Append audience as array
+    
+        try {
+            const responseData = await sendRequest(
+                process.env.REACT_APP_BACKEND_API_URL + '/resource/resources',
+                "POST",
+                formData, // Send formData directly
+                {
+                    'Authorization': 'Bearer ' + auth.token
+                    // Do not set 'Content-Type' here
                 }
+            );
+    
+            console.log(responseData);
+        
+            // Reload the page to display the new resource
+            window.location.reload();
+    
+            // Display a success message
+            toast.success('Resource added successfully!');
 
-            }
+        } catch (err) {
+            console.log(err);
+            toast.error('Could not add resource. Please try again later.');
         }
-
-        addResource();
-
-        //Reset the form fields
+    
         resetForm();
-
-        //Close the modal
         props.onCancel();
-
-    }
+    };
 
     // Array of audience options that the user can select from
     const audienceOptions = [
@@ -163,7 +133,7 @@ const AddResourceModal = props => {
             
             {isLoading && <LoadingSpinner asOverlay />}
 
-            <form className="resource-form">
+            <form className="resource-form" encType='multipart/form-data'>
 
                 <label htmlFor="title">Title</label>
 
@@ -189,7 +159,7 @@ const AddResourceModal = props => {
 
                 <label htmlFor="image">Image</label>
 
-                <input type="file" id="image" name="image" onChange={imageChangeHandler} value={image} />
+                <input type="file" id="image" name="image" onChange={imageChangeHandler}  />
 
                 <div className= "button-container">
 

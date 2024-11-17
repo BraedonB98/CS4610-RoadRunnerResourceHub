@@ -35,7 +35,7 @@ const ResourceCard = (props) => {
 
     const deleteResource = async (resourceId) => {
         try {
-            const response = await fetch(`http://localhost:5000/api/resource/resources/${resourceId}`, {
+            const response = await fetch(process.env.REACT_APP_BACKEND_API_URL + `/resource/resources/${resourceId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

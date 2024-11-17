@@ -159,9 +159,11 @@ const Resource = ({ name, description, link, image, onDelete, isBackendResource 
 
     const auth = React.useContext(AuthContext);
 
+    const imagePath = isBackendResource ? process.env.REACT_APP_ASSET_URL + "/" + image : image;
+
     return (
         <div className="resource-card" onClick={() => window.open(link, "_blank")}>
-            <img src={image} alt={name} className="resource-image" />
+            <img src={imagePath} alt={name} className="resource-image" />
             <h2 className="resource-heading">{name}</h2>
             <p className="resource-description">{description}</p>
 

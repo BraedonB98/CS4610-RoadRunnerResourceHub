@@ -116,7 +116,7 @@ const AuthPage = () => {
       )}
       <br/>
       <Card className="authentication" 
-      style = {{background: 'var(--colorSecondaryVariant)',padding:'1rem', margin:'1rem' , boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
+      style = {{background: 'var(--colorSecondaryVariant)', color: 'white', padding:'1rem', margin:'1rem' , boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
         borderRadius: '1rem 1rem 1rem 1rem',}}>
         {isLoading && <LoadingSpinner asOverlay />}
         <h2>Login Required</h2>
