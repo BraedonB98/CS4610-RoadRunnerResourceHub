@@ -28,17 +28,15 @@ const NavLinks = (props) => {
       <NavItem to="/newstudents" title="New Students"></NavItem>
       <NavItem to="/continuingstudents" title="Continuing Students"></NavItem>
       <NavItem to="/graduatingstudents" title="Graduating Students"></NavItem>
-      
 
-      {!auth.isLoggedIn && (
+      {/* {!auth.isLoggedIn && (
         <NavItem
           onClick={closeDropDownHandler}
           to="/login"
           title="Login"
         ></NavItem>
-      )}
-      
-      
+      )} */}
+
       {auth.isLoggedIn && (
         <NavItem
           className="Nav-Item__Button"
