@@ -1,4 +1,4 @@
-# Road Runner Resource Hub
+# Road Runner Resource Hub(Depricated-> moved to frontend/backend separated repos)
 
 Welcome to the Road Runner Resource Hub Project. The purpose of this project is to be able to provide MSU Denver students with all the resources they actually need during their time here at MSU Denver. The official MSU Denver website is cluttered, filled with too many links, overwhelming and unsearchable. The RoadRunner Resource Hub allows us to condense down this information into a more readable and digestible format.
 
